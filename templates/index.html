@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- 프로필 카드 -->
+<section class="profile-card">
+  <div class="avatar-wrap">
+    <img
+      src="{{ url_for('static', filename='img/profile.jpg') }}"
+      alt="프로필 사진"
+      class="avatar"
+      onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+    />
+    <div class="avatar-fallback">{{ profile.name[0] }}</div>
+  </div>
+  <div class="profile-info">
+    <h1 class="profile-name">{{ profile.name }}</h1>
+    <p class="profile-title">{{ profile.title }}</p>
+    <p class="profile-bio">{{ profile.bio }}</p>
+  </div>
+</section>
+
+<!-- 포스트 목록 -->
+<section class="posts-section">
+  <h2 class="posts-heading">최근 글</h2>
+  <ul class="post-list">
+    {% for post in posts %}
+    <li class="post-item">
+      <a href="/post/{{ post.id }}" class="post-link">
+        <div class="post-meta">
+          <span class="post-category">{{ post.category }}</span>
+          <span class="post-date">{{ post.date }}</span>
+        </div>
+        <h3 class="post-title">{{ post.title }}</h3>
+        <p class="post-summary">{{ post.summary }}</p>
+      </a>
+    </li>
+    {% else %}
+    <li class="no-posts">아직 작성된 글이 없습니다.</li>
+    {% endfor %}
+  </ul>
+</section>
+{% endblock %}

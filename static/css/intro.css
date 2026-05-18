@@ -1,0 +1,150 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  background: #f7f7f8;
+  color: #1a1a1a;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 56px 16px 80px;
+}
+
+.page {
+  width: 100%;
+  max-width: 520px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ── Hero ── */
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 48px 32px 40px;
+  background: #fff;
+  border: 1px solid #e8e8e8;
+  border-radius: 20px;
+}
+
+.avatar-wrap { position: relative; }
+
+.avatar,
+.avatar-fallback {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+}
+
+.avatar {
+  object-fit: cover;
+  border: 2px solid #e8e8e8;
+  display: block;
+}
+
+.avatar-fallback {
+  display: none;
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  color: #fff;
+  font-size: 38px;
+  font-weight: 700;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-name {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.4px;
+  margin-top: 4px;
+}
+
+.hero-title {
+  font-size: 14px;
+  color: #6366f1;
+  font-weight: 500;
+}
+
+/* ── Cards ── */
+.card {
+  background: #fff;
+  border: 1px solid #e8e8e8;
+  border-radius: 16px;
+  padding: 24px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.card-label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: #aaa;
+}
+
+/* ── Bio ── */
+.bio {
+  font-size: 15px;
+  line-height: 1.8;
+  color: #444;
+  font-weight: 300;
+}
+
+/* ── Skills ── */
+.skill-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.skill-chip {
+  font-size: 13px;
+  font-weight: 500;
+  color: #3a3a3a;
+  background: #f2f2f7;
+  border: 1px solid #e4e4ea;
+  padding: 5px 16px;
+  border-radius: 100px;
+  transition: background 0.15s;
+}
+
+.skill-chip:hover { background: #e6e6ef; }
+
+/* ── Contact ── */
+.contact-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  color: #fff;
+  background: #6366f1;
+  padding: 10px 20px;
+  border-radius: 100px;
+  align-self: flex-start;
+  transition: opacity 0.15s, transform 0.15s;
+}
+
+.contact-btn:hover { opacity: 0.85; transform: translateY(-1px); }
+
+/* ── Footer ── */
+.footer {
+  text-align: center;
+  font-size: 12px;
+  color: #ccc;
+  padding-top: 8px;
+}
+
+/* ── Responsive ── */
+@media (max-width: 480px) {
+  body { padding: 32px 12px 60px; }
+  .hero { padding: 36px 20px 32px; }
+  .card { padding: 20px; }
+}

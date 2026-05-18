@@ -1,0 +1,8 @@
+ngrok.zip
+ngrok_standalone/
+eprism.pem
+lt_err.txt
+lt_out.txt
+.claude/
+__pycache__/
+*.pyc

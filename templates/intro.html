@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{ profile.name }} | 자기소개</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/intro.css') }}" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="page">
+
+    <header class="hero">
+      <div class="avatar-wrap">
+        <img
+          src="{{ url_for('static', filename='img/profile.jpg') }}"
+          alt="프로필 사진"
+          class="avatar"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+        />
+        <div class="avatar-fallback">{{ profile.name[0] }}</div>
+      </div>
+      <h1 class="hero-name">{{ profile.name }}</h1>
+      <p class="hero-title">{{ profile.title }}</p>
+    </header>
+
+    <section class="card">
+      <h2 class="card-label">소개</h2>
+      <p class="bio">{{ profile.bio }}</p>
+    </section>
+
+    <section class="card">
+      <h2 class="card-label">기술 스택</h2>
+      <ul class="skill-list">
+        {% for skill in profile.skills %}
+        <li class="skill-chip">{{ skill }}</li>
+        {% endfor %}
+      </ul>
+    </section>
+
+    <section class="card contact-card">
+      <h2 class="card-label">연락처</h2>
+      <a href="mailto:{{ profile.email }}" class="contact-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+          fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="4" width="20" height="16" rx="2"/>
+          <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+        </svg>
+        {{ profile.email }}
+      </a>
+    </section>
+
+    <footer class="footer">&copy; 2026 {{ profile.name }}</footer>
+  </div>
+</body>
+</html>
